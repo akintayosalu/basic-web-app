@@ -38,4 +38,12 @@ describe("QueryProcessor", () => {
         expect(QueryProcessor("What is 5 plus 52?")).toEqual("57");
         expect(QueryProcessor("What is 12 plus 1?")).toEqual("13");
     });
+
+    test('should largest numbers', () => {
+        expect(QueryProcessor("Which of the following numbers is the largest: 2, 3, 4?")).toEqual("4");
+    });
+
+    test('should multiply numbers', () => {
+        expect(QueryProcessor("What is 42 multiplied by 69?")).toEqual("2898");
+    });
 });
