@@ -50,4 +50,8 @@ describe("QueryProcessor", () => {
     test('should minus numbers', () => {
         expect(QueryProcessor("What is 1 minus 34?")).toEqual("-33");
     });
+
+    test('should power numbers', () => {
+        expect(QueryProcessor("What is 2 to the power of 3?")).toEqual("8");
+    });
 });

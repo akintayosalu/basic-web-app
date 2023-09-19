@@ -53,5 +53,46 @@ export default function QueryProcessor(query: string): string {
     return (x-y).toString();
   }
 
+  function isPrime(num: number): boolean {
+    if (num <= 1) {
+        return false;
+    }
+    if (num <= 3) {
+        return true;
+    }
+    if (num % 2 === 0 || num % 3 === 0) {
+        return false;
+    }
+
+    let i = 5;
+    while (i * i <= num) {
+        if (num % i === 0 || num % (i + 2) === 0) {
+            return false;
+        }
+        i += 6;
+    }
+
+    return true;
+  }
+
+  // Example usage
+  const primeNumbers = query.match(/Which of the following numbers are primes: (\d+), (\d+), (\d+), (\d+), (\d+)/);
+
+  // const isPrimeNumber = isPrime(numberToCheck);
+
+  // if (isPrimeNumber) {
+  //     console.log(`${numberToCheck} is a prime number.`);
+  // } else {
+  //     console.log(`${numberToCheck} is not a prime number.`);
+  // }
+
+  const power = query.match(/What is (\d+) to the power of (\d+)/);
+  if (power){
+    const x: number = parseInt(power[1]);
+    const y: number = parseInt(power[2]);
+    return (x**y).toString();
+  }
+
+
   return "";
 }
